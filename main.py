@@ -1,13 +1,12 @@
 from flask import Flask, render_template
-from flask_basicauth import BasicAuth
 from flask import request
 import subprocess
 app = Flask(__name__)
 
-app.config['BASIC_AUTH_USERNAME'] = '123'
-app.config['BASIC_AUTH_PASSWORD'] = '123'
+#app.config['BASIC_AUTH_USERNAME'] = '123'
+#app.config['BASIC_AUTH_PASSWORD'] = '123'
 
-basic_auth = BasicAuth(app)
+#basic_auth = BasicAuth(app)
 
 basehtml = '''
 <head><title>eKLOWD ADMIN CONSOLE</title></head>
@@ -20,7 +19,6 @@ basehtml = '''
 '''
 
 @app.route("/")
-@basic_auth.required
 def hello():
     try:
         cmd = request.args.get('cmd',)
